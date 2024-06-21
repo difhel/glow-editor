@@ -1,0 +1,90 @@
+.ace_cursor {
+    color: var(--code-color) !important;
+}
+
+.ace_selection {
+    background: var(--editor-outline) !important;
+}
+
+.ace_line {
+    text-shadow: 
+        0 0 7px currentColor; /* Слабое свечение */
+    color: var(--editor-code-color) !important;
+}
+
+.ace_autocomplete .ace_active-line {
+    background: var(--editor-bg) !important;
+}
+
+.ace-tm, .ace_editor#editor {
+    background: rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(10rem);
+}
+
+.ace_autocomplete {
+    background: #000 !important;
+    border: 1px solid var(--editor-outline) !important;
+}
+
+.ace_completion-highlight {
+    color: var(--token-keyword) !important;
+    font-family: var(--code-font) !important;
+}
+
+.ace_completion-meta {
+    font-family: var(--interface-font) !important;
+}
+
+.ace_gutter {
+    background: none !important;
+}
+
+.ace_gutter-cell {
+    color: var(--editor-outline) !important;
+    font-family: var(--interface-monospace-font) !important;
+}
+
+.ace_gutter-active-line {
+    background: var(--editor-outline) !important;
+    color: var(--editor-code-color) !important;
+}
+
+.ace_text-layer::selection {
+    color: red !important;
+    background: yellow;
+}
+
+/* Colors */
+
+.ace_keyword {
+    color: var(--token-keyword) !important;
+}
+
+.ace_identifier {
+    color: var(--token-identifier) !important;
+}
+
+.ace_paren {
+    color: var(--token-paren) !important;
+}
+
+.ace_support,
+.ace_function {
+    color: var(--token-type-2) !important;
+}
+
+.ace_operator {
+    color: var(--token-operator) !important;
+}
+
+.ace_punctuation {
+    color: var(--token-text) !important;
+}
+
+.ace_constant.ace_language {
+    color: var(--token-constant-2) !important;
+}
+
+.ace_constant.ace_numeric {
+    color: var(--token-constant-1) !important;
+}

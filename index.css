@@ -1,0 +1,138 @@
+:root {
+    --editor-bg: #0f004c;
+    --editor-bg-2: #00ffd0;
+    --editor-bg-3: #8400ff;
+    /* Черный фон для контраста */
+    --editor-code-color: #fff;
+    /* Белый текст */
+    --editor-outline: #6a62cc;
+    /* Цвет рамки */
+    --editor-shadow: #0ff;
+    /* Цвет свечения */
+    /* case 'keyword':
+            return 'var(--token-keyword)';
+        case 'text':
+            return 'var(--token-text)';
+        case 'identifier':
+            return 'var(--token-identifier)';
+        case 'paren.lparen':
+            return 'var(--token-paren)';
+        case 'paren.rparen':
+            return 'var(--token-paren)';
+        case 'punctuation':
+            return 'var(--token-text)';
+        case 'support.function':
+            return 'var(--token-type-2)';
+        case 'keyword.operator':
+            return 'var(--token-operator)';
+        case 'constant.numeric':
+            return 'var(--token-constant-1)';
+        case 'constant.language':
+            return 'var(--token-constant-2)';
+        case 'string':
+            return 'var(--token-string)'; */
+    --token-keyword: #ff00ff;
+    --token-text: #fff;
+    --token-identifier: #fff;
+    --token-paren: #ff00ff;
+    --token-type-2: #544783;
+    --token-operator: #8b008b;
+    --token-constant-1: #ff9100;
+    --token-constant-2: #6a53ff;
+    --token-string: #1f5800;
+    --interface-monospace-font: SF Mono, var(--code-font);
+    --interface-font: SF Pro, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --code-font: Jetbrains Mono, SF Mono, Fira Code, Roboto Mono, monospace;
+}
+
+body {
+    background: radial-gradient(
+        farthest-corner at 0px 0px,
+        var(--editor-bg) 40%,
+        var(--editor-bg-3),
+        var(--editor-bg-2)
+    );
+    /* Черный фон для контраста */
+    height: 100vh;
+    margin: 0;
+    font-size: 1rem;
+    font-family: var(--interface-font);
+}
+
+.editor {
+    display: flex;
+    display: none;
+    flex-direction: row;
+    align-items: flex-start;
+    border: 1px solid var(--editor-outline);
+    padding: 1.5rem;
+    border-radius: 2rem;
+    line-height: 1.3rem;
+}
+
+.line {
+    color: #fff;
+    /* Белый текст */
+    line-height: 1.3rem !important;
+    display: inline-block;
+    text-shadow:
+        0 0 5px currentColor,
+        /* Слабое свечение */
+        0 0 10px currentColor;
+    /* Среднее свечение */
+}
+
+.linenumbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #6a62cc;
+    width: 2rem;
+    line-height: 1.3rem;
+}
+
+.code {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-variant-ligatures: common-ligatures;
+    font-family: var(--code-font);
+}
+
+#editor {
+    height: 60vh;
+    font-size: 1rem;
+    font-variant-ligatures: common-ligatures;
+    font-family: var(--code-font);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 80vw;
+    margin: auto;
+    border-radius: 1rem;
+    box-shadow: 1rem 1rem 2rem var(--editor-bg);
+}
+
+@media screen and (max-width: 768px) {
+    #editor {
+        width: calc(100vw - 3rem);
+        height: calc(100vh - 3rem);
+        margin: 1.5rem auto;
+    }
+}
+
+pre {
+    margin: 0 !important;
+    display: inline;
+    font-variant-ligatures: common-ligatures;
+    font-family: var(--code-font);
+}
+
+/* .editor-wrapper {
+    border: 1px solid var(--editor-outline);
+    padding: 1.5rem;
+    border-radius: 2rem;
+} */

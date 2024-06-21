@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Неоновый текст</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./custom-ace.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/mode-python.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/theme-monokai.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        window.onload = function () {
+            const editor = ace.edit("editor");
+            editor.session.setMode("ace/mode/python");
+
+            const code = `# тест кириллицы
+# testing ligatures
+a = 1 + 1 == 2, ...
+import antigravity
+from a import b as c
+from . import Z
+
+class MyClass(MyClass2):
+    a = c
+    ...
+
+class MyClass(object): # built-in type highlighting
+    def __init__(self, param: list[bool]) -> None:
+        self.param = super().parse(param)
+    async def test(self, *args, **kwargs) -> MyClass:
+        await requests.get(*args, **kwargs)
+
+@ping.pong(arg=True)
+def bulo4ka(age: int) -> None:
+    """docstring
+
+    bruh
+    """
+    if age < 18: return 42
+    else: return "Error"
+    bulo4ka(32)
+    raise Exception("Error")
+`;
+            editor.setValue(code, -1);
+            editor.setShowPrintMargin(false);
+            editor.setHighlightActiveLine(false);
+            editor.setFadeFoldWidgets(true);
+            var langTools = ace.require("ace/ext/language_tools");
+            editor.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: true,
+                // maxLines: Infinity
+            });
+            editor.setTheme("ace/theme/monokai"); 
+
+            const tokenizer = ace.require("ace/tokenizer");
+            const PythonMode = ace.require("ace/mode/python").Mode;
+            const pythonMode = new PythonMode();
+
+            const tokens = pythonMode.getTokenizer().getLineTokens(code, "start").tokens;
+            console.log(tokens);
+            // console.log(tokensToLines(tokens))
+            injectLines(tokensToLines(tokens));
+        };
+    </script>
+</head>
+
+<body>
+    <div class="editor-wrapper">
+        <div id="editor"></div>
+    </div>
+    <div class="editor">
+        <div class="linenumbers">
+            <span class="codeline">1</span>
+            <span class="codeline">2</span>
+            <span class="codeline">3</span>
+            <span class="codeline">4</span>
+            <span class="codeline">5</span>
+        </div>
+        <div class="code">
+        </div>
+    </div>
+</body>
+
+</html>
