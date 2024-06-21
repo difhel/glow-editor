@@ -7,6 +7,6 @@ Some screemshots for reference:
 
 <img src="./screenshots/1.png" height=500 />
 
-<img src="./screenshots/glow.png" height=300 />
+<img src="./screenshots/glow.png" height=200 />
 
-<img src="./screenshots/autocomplete.png" height=300 />
+<img src="./screenshots/autocomplete.png" height=250 />
